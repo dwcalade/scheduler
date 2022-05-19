@@ -58,15 +58,18 @@ storiesOf("Button", module)
   ];
 
   storiesOf("DayList", module)
-    .addParameters({
-      backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
-    })
-    .add("Monday", () => (
-      <DayList days={days} day={"Monday"} setDay={action("setDay")} />
-    ))
-    .add("Tuesday", () => (
-      <DayList days={days} day={"Tuesday"} setDay={action("setDay")} />
-      ));
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }],
+  })
+  .add("Monday", () => (
+    <DayList days={days} value={"Monday"} onChange={action("setDay")} />
+  ))
+  .add("Tuesday", () => (
+    <DayList days={days} value={"Tuesday"} onChange={action("setDay")} />
+  ))
+  .add("Wednesday", () => (
+    <DayList days={days} value={"Wednesday"} onChange={action("setDay")} />
+  ));
 
   const interviewer = {
     id: 1,
@@ -97,7 +100,7 @@ storiesOf("Button", module)
       <InterviewerListItem
         name={interviewer.name}
         avatar={interviewer.avatar}
-        setInterviewer={() => action("setInterviewer")(interviewer.id)}
+        setInterviewer={event => action("setInterviewer")(interviewer.id)}
       />
     ));
       const interviewers = [
@@ -121,7 +124,7 @@ storiesOf("Button", module)
       .add("Preselected", () => (
         <InterviewerList
           interviewers={interviewers}
-          interviewer={3}
-          setInterviewer={action("setInterviewer")}
+          value = {3}
+          onChange={action("onChange")}
         />
       ));
