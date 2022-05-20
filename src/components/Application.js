@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import "components/Application.scss";
 import DayList from "./DayList";
 import InterviewerList from "./InterviewerList";
 import Appointment from "components/Appointment";
 import axios from 'axios';
-
 const appointments = [
   {
     id: 1,
@@ -40,25 +38,30 @@ const appointments = [
     time: "12am",
   }
 ];
-
 const appointment = appointments.map((appt) => {
   return (
-      <Appointment key={appt.id} id={appt.id} time={appt.time} interview={appt.interview} />
+      <Appointment key={appt.id} {...appt} />
     )
 });
 
 export default function Application(props) {
-  const [day, setDay] = useState([]);
-  const [dayData, setDayData] = useState([]);
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    appointments: {}
+  })
+
+  const setDay = day => setState({...state, day});
+  const setDays = days => setState(prev => ({ ...prev, days }));
+
 
   useEffect(() => {
     axios.get('http://localhost:8001/api/days')
       .then(res => {
-        setDayData(res.data)
+        setDays(res.data)
       })
       .catch(err => console.log(err))
   }, [])
-
   return (
     <main className="layout">
       <section className="sidebar">
@@ -70,20 +73,19 @@ export default function Application(props) {
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
         <DayList
-          days={dayData}
-          day={day}
+          days={state.days}
+          day={state.day}
           setDay={setDay}
         />
         </nav>
         <img
-        className="sidebar__lhl sidebar--centered"
-        src="images/lhl.png"
-        alt="Lighthouse Labs"
+          className="sidebar__lhl sidebar--centered"
+          src="images/lhl.png"
+          alt="Lighthouse Labs"
         />
       </section>
       <section className="schedule">
-      {appointment} 
-
+        {appointment} 
         <Appointment key="last" time="5pm" />
       </section>
     </main>
