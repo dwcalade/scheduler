@@ -1,4 +1,4 @@
-const matchAppointments = (appointments, ids) => {
+const matchIds = (appointments, ids) => {
     const matched = ids.map(id => appointments[id]);
     return matched;
   }
@@ -12,7 +12,19 @@ const matchAppointments = (appointments, ids) => {
         dayObject.appointments.forEach(apptId => appointmentArr.push(apptId))
       }
     })
-    return matchAppointments(state.appointments, appointmentArr);
+    return matchIds(state.appointments, appointmentArr);
   }
   
-  module.exports = { getAppointmentsForDay };
+  function getInterview(state, interview) {
+    if (!interview) {
+      return null;
+    }
+  
+    const interviewerInfo = state.interviewers[interview.interviewer];
+    return {
+      student: interview.student,
+      interviewer: interviewerInfo
+    }
+  }
+  
+  module.exports = { matchIds, getAppointmentsForDay, getInterview };
