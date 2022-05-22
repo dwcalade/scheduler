@@ -27,4 +27,16 @@ const matchIds = (appointments, ids) => {
     }
   }
   
-  module.exports = { matchIds, getAppointmentsForDay, getInterview };
+  function getInterviewersForDay(state, day) {
+
+    let interviewersArr = [];
+    state.days.map(dayObject => {
+      if (dayObject.name === day) {
+        dayObject.interviewers.forEach(interviewerId => interviewersArr.push(interviewerId))
+      }
+    })
+    return matchIds(state.interviewers, interviewersArr);
+  }
+  
+  module.exports = { matchIds, getAppointmentsForDay, getInterview, getInterviewersForDay }; 
+  
