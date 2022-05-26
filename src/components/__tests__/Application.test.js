@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /*
   We are rendering `<Application />` down below, so we need React.createElement
 */
