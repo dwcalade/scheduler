@@ -32,15 +32,15 @@ npm test
 npm run storybook
 ```
 ### Daily view
-!['DailyView'](docs/DailyView.png)
+!['DailyView'](src/docs/DailyView.png)
 Displays the available slots for an appointment. Along with the current previous bookings.
 
 ### Book an Appointment
-!['BookNewAppointment'](docs/BookNewAppointment.png)
+!['BookNewAppointment'](src/docs/BookNewAppointment.png)
 Select a weekday and then choose one of the available slots for an appointment.
 
 ### Deleting an appointment
-!['InterviewCancel'](docs/InterviewCancel.png)
+!['InterviewCancel'](src/docs/InterviewCancel.png)
 When you want to delete an appointment, there will be a confirmation that popups.
 
 
@@ -52,10 +52,12 @@ For full functionality both must run concurrently: the client and the API server
 - Fork and clone this repo
 - Navigate to the root directory and install dependencies with `npm install`
 - Once you have the database setup and the scheduler-api server running, run the following command from the root directory of the project `npm start`
+
 ## Project Stack
 __Front-End:__ React, Axios, JSX, HTML, SASS, JavaScript
 __Back-End:__ Express, Node.js, PostgreSQL
 __Testing:__ Storybook, Webpack Dev Server, Jest, Testing Library and Cypress
+
 ## Dependencies
 - Axios
 - Classnames
