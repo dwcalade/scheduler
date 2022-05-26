@@ -1,12 +1,13 @@
 # Interview Scheduler
+
 ## Project Description
 
 Interview Scheduler is a Single Page Application(SPA) to track students interviews built with the latest tools and techniques for optimized user experience.
 The App allows users to add, edit and delete appointments in real time. It uses  React built-in and custom hooks
 Data is persisted by the API server using a PostgreSQL database. The client application communicates with an API server over HTTP, using the JSON format.
 Moreover, for quality assurance, the project follows best practices of Test Driven Development (TDD).i.e, individual Component is tested in isolation as well as End-to-End testing is performed.
-
 ## Project Features
+
 - Appointment days (Monday to Friday) are displayed and colour-coordinated depending on availability
 - The days show the number of slots available
 - A user can switch between days and see detailed information
@@ -17,7 +18,6 @@ Moreover, for quality assurance, the project follows best practices of Test Driv
 - Days display currently remaining spots and show updates after each modification
 
 ## Setup
-
 Install dependencies with `npm install`.
 ## Running Webpack Development Server
 ```sh
@@ -31,3 +31,47 @@ npm test
 ```sh
 npm run storybook
 ```
+### Daily view
+!['DailyView'](docs/DailyView.png)
+Displays the available slots for an appointment. Along with the current previous bookings.
+
+### Book an Appointment
+!['BookNewAppointment'](docs/BookNewAppointment.png)
+Select a weekday and then choose one of the available slots for an appointment.
+
+### Deleting an appointment
+!['InterviewCancel'](docs/InterviewCancel.png)
+When you want to delete an appointment, there will be a confirmation that popups.
+
+
+## API server/*Database Setup
+
+For full functionality both must run concurrently: the client and the API server applications.
+- Start by forking and cloning the scheduler-api server [here](https://github.com/lighthouse-labs/scheduler-api)
+- Follow the steps outlined in README to install and setup the database
+- Fork and clone this repo
+- Navigate to the root directory and install dependencies with `npm install`
+- Once you have the database setup and the scheduler-api server running, run the following command from the root directory of the project `npm start`
+## Project Stack
+__Front-End:__ React, Axios, JSX, HTML, SASS, JavaScript
+__Back-End:__ Express, Node.js, PostgreSQL
+__Testing:__ Storybook, Webpack Dev Server, Jest, Testing Library and Cypress
+## Dependencies
+- Axios
+- Classnames
+- Normalize.css
+- React
+- React-dom
+- React-scripts
+- Babel/core
+- Storybook/addon-actions
+- Storybook/addon-backgrounds
+- Storybook/addon-links
+- Storybook/addons
+- Storybook/react
+- Testing-library/jest-dom
+- Testing-library/react
+- Testing-library/react-hooks
+- Babel-loader
+- Node-sass
+- Prop-types
