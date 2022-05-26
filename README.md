@@ -44,7 +44,7 @@ Select a weekday and then choose one of the available slots for an appointment.
 When you want to delete an appointment, there will be a confirmation that popups.
 
 
-## API server/*Database Setup
+## API server/Database Setup
 
 For full functionality both must run concurrently: the client and the API server applications.
 - Start by forking and cloning the scheduler-api server [here](https://github.com/lighthouse-labs/scheduler-api)
